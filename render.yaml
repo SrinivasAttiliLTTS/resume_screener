@@ -5,24 +5,23 @@ services:
     dockerfilePath: backend/Dockerfile
     plan: starter
     region: oregon
-    buildCommand: ""
-    startCommand: ""
     autoDeploy: true
     envVars:
       - key: PYTHONUNBUFFERED
         value: "1"
 
-  - type: static
+  - type: web
     name: resume-screen-frontend
-    env: static
-    staticPublishPath: frontend/build
+    env: node
+    rootDir: frontend
     buildCommand: |
-      cd frontend
       npm ci
       npm run build
+    startCommand: "npx serve -s build"
     plan: starter
     region: oregon
     autoDeploy: true
     envVars:
       - key: REACT_APP_API_BASE
-        value: "https://ai-resume-screen-backend.onrender.com"
+        value: "https://resume-screen-backend.onrender.com"
+
