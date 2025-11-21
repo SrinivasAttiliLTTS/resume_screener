@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: resume-screen-backend
+    env: docker
+    dockerfilePath: backend/Dockerfile
+    plan: starter
+    region: oregon
+    buildCommand: ""
+    startCommand: ""
+    autoDeploy: true
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+
+  - type: static
+    name: resume-screen-frontend
+    env: static
+    staticPublishPath: frontend/build
+    buildCommand: |
+      cd frontend
+      npm ci
+      npm run build
+    plan: starter
+    region: oregon
+    autoDeploy: true
+    envVars:
+      - key: REACT_APP_API_BASE
+        value: "https://<resume-screen-backend>.onrender.com"
