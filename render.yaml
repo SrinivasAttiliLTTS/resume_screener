@@ -25,4 +25,4 @@ services:
     autoDeploy: true
     envVars:
       - key: REACT_APP_API_BASE
-        value: "https://<resume-screen-backend>.onrender.com"
+        value: "https://ai-resume-screen-backend.onrender.com"
