@@ -21,6 +21,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def root():
+    return {"status": "ok"}
+
 @app.get("/ping")
 async def ping():
     return {"status": "ok"}

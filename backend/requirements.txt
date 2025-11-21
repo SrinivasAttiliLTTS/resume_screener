@@ -10,3 +10,4 @@ torch
 transformers
 scipy
 docx2txt
+gunicorn
