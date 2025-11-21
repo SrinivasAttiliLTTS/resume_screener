@@ -18,7 +18,7 @@ services:
       npm ci
       npm run build
     startCommand: "npx serve -s build"
-    plan: starter
+    plan: free
     region: oregon
     autoDeploy: true
     envVars:
