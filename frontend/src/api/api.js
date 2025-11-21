@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:10000";
-
+// const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:10000";
+const API_BASE = process.env.REACT_APP_API_BASE || "https://ai-resume-screen-backend.onrender.com";
 export async function uploadJD(jdFile, jdText) {
   const fd = new FormData();
   if (jdFile) fd.append("jd_file", jdFile);
